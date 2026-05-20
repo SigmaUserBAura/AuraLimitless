@@ -338,18 +338,31 @@
 
             txtPuncte.innerText = puncteAura >= 0 ? '+' + puncteAura : puncteAura;
 
-            if (puncteAura >= 8000) {
-                txtRank.innerText = "👑 AURA ASCENDED (PSL God Status)";
-                txtDesc.innerText = "Ești direct în vârful piramidei din 2026. Tom Pearl n-are nicio șansă în fața ta, asculți phunk-uri la nivel transcendental, ai frame divin și pomeți care pot tăia sticla. Nivel maxim de respect.";
-            } else if (puncteAura >= 3000 && puncteAura < 8000) {
-                txtRank.innerText = "🤫 ADAMLITE VALID (Mewing Enforcer)";
-                txtDesc.innerText = "Nu e rău deloc. Îți stăpânești instinctele de looksmaxxing, știi când e vorba de cope și nu cazi pradă trendurilor de NPC. Păstrează streak-ul și dai Ascend imediat.";
-            } else if (puncteAura >= -1000 && puncteAura < 3000) {
-                txtRank.innerText = "😐 TIED TO THE MATRIX (Aura neutră)";
-                txtDesc.innerText = "Ești cam la mijloc. Ai momente bune, dar uneori mai pici în capcane vechi sau te panichezi la un live ciudat. Mai lasă telefoanele și ai grijă de estetica ta reală.";
+            // SISTEM NOU DE 8 RANKURI EXTINSE (2026 META)
+            if (puncteAura >= 15000) {
+                txtRank.innerText = "🔱 PSL 8+ GOD (Transcendental Ascend)";
+                txtDesc.innerText = "Ai obținut punctajul perfect. Pomeții tăi pot tăia oțelul, privirea ta Hunter Eyes a dat crash la algoritmul TikTok, iar Tom Pearl stă la coadă doar ca să-ți ceară autograf. Ești definiția absolută a aurei pozitive în 2026.";
+            } else if (puncteAura >= 11000 && puncteAura < 15000) {
+                txtRank.innerText = "👑 GIGA-CHAD CHADFLATION (Ultra Valid)";
+                txtDesc.innerText = "Un scor extrem de mare! Ești un enforcer veritabil al curentului de looksmaxxing, nu pici pradă la nicio tactică de frauding și ai frame-ul ideal. Toți cei din jur își pierd punctele când treci pe lângă ei.";
+            } else if (puncteAura >= 7500 && puncteAura < 11000) {
+                txtRank.innerText = "🤫 ADAMLITE SUPREM (Mewing Master)";
+                txtDesc.innerText = "Foarte bine! Ai un stil controlat, știi teoria estetică facială și dai mofat la toți acei Chadlites care cred că înălțimea e totul. Silent grind-ul tău dă roade zilnic.";
+            } else if (puncteAura >= 4000 && puncteAura < 7500) {
+                txtRank.innerText = "😐 SOFT-MAXXING ENTHUSIAST (Pe drumul cel bun)";
+                txtDesc.innerText = "Ai o aură destul de stabilă. Ai grijă de igienă, tunsoare și potrivire, dar uneori te mai uiți la edite audio dubioase prea mult timp. Încă puțin efort și prinți topul piramidei.";
+            } else if (puncteAura >= 1000 && puncteAura < 4000) {
+                txtRank.innerText = "🥶 CASUAL SCROLLER (Aura instabilă)";
+                txtDesc.innerText = "Ești la limita de plutire. Te folosești de jargon, dar în sinea ta încă mai ai momente de NPC speriat. Dacă îți mai scade un pic jawline-ul, ești în pericol de mofare publică.";
+            } else if (puncteAura >= -1500 && puncteAura < 1000) {
+                txtRank.innerText = "🤡 COPE MASTER (Prizonier în Matrix)";
+                txtDesc.innerText = "Ai intrat în zona periculoasă. Argumentezi mult în comentarii ca să ascunzi faptul că ai pierdut streak-ul de fasting și că pomeții tăi au retenție masivă de apă. Schimbă guma rapid!";
+            } else if (puncteAura >= -5000 && puncteAura < -1500) {
+                txtRank.innerText = "💀 SON STICKER COLLECTOR (Lobotomizat total)";
+                txtDesc.innerText = "Scor grav negativ. Mintea ta a fost spălată complet de live-urile care curăță ecrane. Ai primit Fanum Tax la absolut toată mâncarea din casă și ai acumulat tone de energie negativă.";
             } else {
-                txtRank.innerText = "💀 BRAINROT DEFIZICIZAT (-Infinit Aura)";
-                txtDesc.innerText = "Dezastru total în baza de date din 2026. Creierul tău s-a transformat în praf de stickere Son. Ai picat toate testele de dominanță, ești mofat complet de orice Chadlite și ai primit Fanum Tax pe viață. Mergi afară urgent!";
+                txtRank.innerText = "🫵 LOBOTOMY FINISHED (-Infinit Aura NPC)";
+                txtDesc.innerText = "Dezastru cosmic în baza de date din 2026. Ai picat absolut orice test de dominanță mentală și vizuală, ești mofat și de un copil de 12 ani și creierul tău rulează doar Skibidi în mod neironic. Lasă internetul și mergi să atingi iarbă urgent!";
             }
         }
 
