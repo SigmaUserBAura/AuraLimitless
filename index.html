@@ -13,7 +13,6 @@
             --card-bg: #0f0f26;
             --text-color: #ffffff;
         }
-
         body {
             font-family: 'Segoe UI', Roboto, sans-serif;
             background-color: var(--bg-color);
@@ -26,7 +25,6 @@
             justify-content: center;
             min-height: 100vh;
         }
-
         .container {
             max-width: 650px;
             width: 100%;
@@ -38,7 +36,6 @@
             border: 1px solid rgba(0, 255, 204, 0.3);
             box-sizing: border-box;
         }
-
         h1 {
             font-size: 2.8rem;
             margin-bottom: 5px;
@@ -46,14 +43,12 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
         .subtitle {
             font-style: italic;
             color: #aaa;
             margin-bottom: 30px;
             font-size: 1.1rem;
         }
-
         .btn {
             background: linear-gradient(45deg, var(--secondary-color), #7000ff);
             color: white;
@@ -67,23 +62,19 @@
             margin-top: 15px;
             display: block;
         }
-
         .quiz-box, .result-box {
             display: none;
         }
-
         .question {
             font-size: 1.4rem;
             margin-bottom: 25px;
             font-weight: 600;
         }
-
         .options-container {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
-
         .option-btn {
             background: #161638;
             color: #e0e0ff;
@@ -95,21 +86,18 @@
             text-align: left;
             width: 100%;
         }
-
         .aura-score {
             font-size: 4.5rem;
             font-weight: 800;
             margin: 20px 0;
             color: #fffb00;
         }
-
         .rank {
             font-size: 1.8rem;
             color: var(--accent-color);
             margin-bottom: 20px;
             font-weight: bold;
         }
-
         #progress {
             font-size: 0.9rem;
             color: #666;
@@ -124,7 +112,7 @@
         <h1>⚡ AuraLimitless ⚡</h1>
         <p class="subtitle">Generația Meta 2025-2026. Phunk brazilian, Looksmaxxing și teste de Aură extreme.</p>
         <p>Ești blocat la baza piramidei sau ai dat deja Ascend? Să vedem câte puncte de Aură ai de fapt în feed-ul actual.</p>
-        <button class="btn" id="start-button">TESTEAZĂ-ȚI AURA (2026 Meta)</button>
+        <button class="btn" onclick="porneșteTestul()">TESTEAZĂ-ȚI AURA (2026 Meta)</button>
     </div>
 
     <div class="container quiz-box" id="quiz-box">
@@ -139,190 +127,238 @@
         <div class="aura-score" id="aura-points">+0</div>
         <div class="rank" id="aura-rank">Calculare...</div>
         <p id="rank-description" style="color: #ccc; line-height: 1.5; margin-bottom: 25px;"></p>
-        <button class="btn" id="restart-button">Mai bagă o fisă (Reîncepe)</button>
+        <button class="btn" onclick="reporneșteTestul()">Mai bagă o fisă (Reîncepe)</button>
     </div>
 
     <script>
-        const questions = [
+        var întrebări = [
             {
-                question: "1. Asculți Tiki Tiki funk la căști și Tom Pearl intră brusc peste tine în cameră. Ce faci?",
-                options: [
-                    { text: "Îi dau instant flegmă pe ecran ca să-mi păstrez streak-ul de looksmaxxing.", points: 800 },
-                    { text: "Îngheț și încep să fac mewing panicat în timp ce el filmează.", points: -400 },
-                    { text: "Scot căștile și intru în loop-ul lui de râs nebun.", points: 200 }
+                q: "1. Asculți Tiki Tiki funk la căști și Tom Pearl intră brusc peste tine în cameră. Ce faci?",
+                opt: [
+                    { t: "Îi dau instant flegmă pe ecran ca să-mi păstrez streak-ul de looksmaxxing.", p: 800 },
+                    { t: "Îngheț și încep să fac mewing panicat în timp ce el filmează.", p: -400 },
+                    { t: "Scot căștile și intru în loop-ul lui de râs nebun.", p: 200 }
                 ]
             },
             {
-                question: "2. Yara Yara funk îți derulează pe telefon pe volum maxim, dar tu ești în fața unei prezentări serioase la școală/muncă. Cum reacționezi?",
-                options: [
-                    { text: "Trântesc telefonul, fac un bone smashing live și zic că e un test social.", points: -1000 },
-                    { text: "Las piesa să curgă, blochez privirea spre public și fac build-up de subdominație.", points: 1200 },
-                    { text: "Mă înroșesc și încerc să închid repede telefonul ca un NPC.", points: -600 }
+                q: "2. Yara Yara funk îți derulează pe telefon pe volum maxim, dar tu ești în fața unei prezentări serioase la școală/muncă. Cum reacționezi?",
+                opt: [
+                    { t: "Trântesc telefonul, fac un bone smashing live și zic că e un test social.", p: -1000 },
+                    { t: "Las piesa să curgă, blochez privirea spre public și fac build-up de subdominație.", p: 1200 },
+                    { t: "Mă înroșesc și încerc să închid repede telefonul ca un NPC.", p: -600 }
                 ]
             },
             {
-                question: "3. Ai colectat toate stickerele Son posibile, dar Aura ta este prea mică să dai Ascend. Care este următoarea mișcare?",
-                options: [
-                    { text: "Mă duc în secțiunea de comentarii să fac glazing la conturi mari doar-doar primesc puncte.", points: -500 },
-                    { text: "Sacrific stickerele și bag un meci de Stare-down cu camera timp de 4 ore.", points: 700 },
-                    { text: "Plâng pe un live de TikTok că algoritmul e blocat în 2024.", points: -1200 }
+                q: "3. Ai colectat toate stickerele Son posibile, dar Aura ta este prea mică să dai Ascend. Care este următoarea mișcare?",
+                opt: [
+                    { t: "Mă duc în secțiunea de comentarii să fac glazing la conturi mari doar-doar primesc puncte.", p: -500 },
+                    { t: "Sacrific stickerele și bag un meci de Stare-down cu camera timp de 4 ore.", p: 700 },
+                    { t: "Plâng pe un live de TikTok că algoritmul e blocat în 2024.", p: -1200 }
                 ]
             },
             {
-                question: "4. Vine un 6ft3 Chadlite în fața ta și tu ești doar un 6ft0 Adamlite cu un PSL de 7.6. Ce faci?",
-                options: [
-                    { text: "Ești Adamlite dar ai PSL 7.6? Îi dai mofat direct pe bază de Facial Aesthetics, înălțimea e cope.", points: 1500 },
-                    { text: "Îți pui ochelarii de soare, fac frauding cu postură și sper să nu-mi vadă caninii.", points: 0 },
-                    { text: "Intri în depresie, zici its over și încep să scriu recenzii pe forumuri obscure.", points: -900 }
+                q: "4. Vine un 6ft3 Chadlite în fața ta și tu ești doar un 6ft0 Adamlite cu un PSL de 7.6. Ce faci?",
+                opt: [
+                    { t: "Ești Adamlite dar ai PSL 7.6? Îi dai mofat direct pe bază de Facial Aesthetics, înălțimea e cope.", p: 1500 },
+                    { t: "Îți pui ochelarii de soare, fac frauding cu postură și sper să nu-mi vadă caninii.", p: 0 },
+                    { t: "Intri în depresie, zici its over și încep să scriu recenzii pe forumuri obscure.", p: -900 }
                 ]
             },
             {
-                question: "5. Intri pe un live din 2026 și vezi un cont care spală ecrane de telefon pentru bani. Ce trimiți în chat?",
-                options: [
-                    { text: "Un sticker cu Womp Womp în mod neironic.", points: -400 },
-                    { text: "Trimit un trandafir și îi zic Keep grinding, bro, ești la un pas de succes.", points: 300 },
-                    { text: "Ieși instant, un adevărat giga-brain nu consumă conținut de lobotomie.", points: 600 }
+                q: "5. Intri pe un live din 2026 și vezi un cont care spală ecrane de telefon pentru bani. Ce trimiți în chat?",
+                opt: [
+                    { t: "Un sticker cu Womp Womp în mod neironic.", p: -400 },
+                    { t: "Trimit un trandafir și îi zic Keep grinding, bro, ești la un pas de succes.", p: 300 },
+                    { t: "Ieși instant, un adevărat giga-brain nu consumă conținut de lobotomie.", p: 600 }
                 ]
             },
             {
-                question: "6. Cineva folosește cuvântul Skibidi în mai 2026 în mod serios lângă tine. Cum reacționezi?",
-                options: [
-                    { text: "Îi zic că a rămas blocat în epoca de piatră a internetului și îi scad 5000 aură mental.", points: 800 },
-                    { text: "Râd cu el pentru că și creierul meu a rămas blocat acolo.", points: -800 },
-                    { text: "Îi dau mute în viața reală și mă îndepărtez prin moonwalk.", points: 400 }
+                q: "6. Cineva folosește cuvântul Skibidi în mai 2026 în mod serios lângă tine. Cum reacționezi?",
+                opt: [
+                    { t: "Îi zic că a rămas blocat în epoca de piatră a internetului și îi scad 5000 aură mental.", p: 800 },
+                    { t: "Râd cu el pentru că și creierul meu a rămas blocat acolo.", p: -800 },
+                    { t: "Îi dau mute în viața reală și mă îndepărtez prin moonwalk.", p: 400 }
                 ]
             },
             {
-                question: "7. Te trezești dimineața și observi că linia maxilarului tău (jawline) a pierdut din definiție. Care e prima reacție?",
-                options: [
-                    { text: "Guma de mestecat mastic 24/7, nu vorbesc cu nimeni azi, e zi de silent grind.", points: 500 },
-                    { text: "E doar retenție de apă, bag un duș cu gheață și revin la un PSL stabil.", points: 300 },
-                    { text: "Mă panichez și îmi fac un selfie cu filtru de deformare.", points: -700 }
+                q: "7. Te trezești dimineața și observi că linia maxilarului tău (jawline) a pierdut din definiție. Care e prima reacție?",
+                opt: [
+                    { t: "Guma de mestecat mastic 24/7, nu vorbesc cu nimeni azi, e zi de silent grind.", p: 500 },
+                    { t: "E doar retenție de apă, bag un duș cu gheață și revin la un PSL stabil.", p: 300 },
+                    { t: "Mă panichez și îmi fac un selfie cu filtru de deformare.", p: -700 }
                 ]
             },
             {
-                question: "8. Ce înseamnă cu adevărat când cineva îți spune că ești Cope Master în comentarii?",
-                options: [
-                    { text: "Că încerci să asyncunzi adevărul cu argumente slabe pentru că ai pierdut meciul.", points: 400 },
-                    { text: "Că ești șeful suprem la magazinul de calculatoare.", points: -600 },
-                    { text: "Un compliment de estetică vizuală.", points: -300 }
+                q: "8. Ce înseamnă cu adevărat când cineva îți spune că ești Cope Master în comentarii?",
+                opt: [
+                    { t: "Că încerci să ascunzi adevărul cu argumente slabe pentru că ai pierdut meciul.", p: 400 },
+                    { t: "Că ești șeful suprem la magazinul de calculatoare.", p: -600 },
+                    { t: "Un compliment de estetică vizuală.", p: -300 }
                 ]
             },
             {
-                question: "9. Ești la o petrecere și începe să sune un edit audio extrem de agresiv cu Phunk brazilian lent. Ce faci?",
-                options: [
-                    { text: "Stau nemișcat în colț cu privirea Hunter Eyes activată complet.", points: 600 },
-                    { text: "Încep să dansez ciudat ca pe vremuri pe TikTok.", points: -500 },
-                    { text: "Iau microfonul și încep să vorbesc despre crypto și looksmaxxing.", points: 200 }
+                q: "9. Ești la o petrecere și începe să sune un edit audio extrem de agresiv cu Phunk brazilian lent. Ce faci?",
+                opt: [
+                    { t: "Stau nemișcat în colț cu privirea Hunter Eyes activată complet.", p: 600 },
+                    { t: "Încep să dansez ciudat ca pe vremuri pe TikTok.", p: -500 },
+                    { t: "Iau microfonul și încep să vorbesc despre crypto și looksmaxxing.", p: 200 }
                 ]
             },
             {
-                question: "10. Ai primit Fanum Tax la mâncare, dar ești în plin proces de fasting pentru definirea pomeților. Cum gestionezi situația?",
-                options: [
-                    { text: "Îi las să ia tot, oricum eram pe starvation mode pentru extra hollow cheeks.", points: 1100 },
-                    { text: "Mă bat cu ei pentru o cartofă prăjită.", points: -400 },
-                    { text: "Plâng că mi-au stricat caloriile numărate.", points: -600 }
+                q: "10. Ai primit Fanum Tax la mâncare, dar ești în plin proces de fasting pentru definirea pomeților. Cum gestionezi situația?",
+                opt: [
+                    { t: "Îi las să ia tot, oricum eram pe starvation mode pentru extra hollow cheeks.", p: 1100 },
+                    { t: "Mă bat cu ei pentru o cartofă prăjită.", p: -400 },
+                    { t: "Plâng că mi-au stricat caloriile numărate.", p: -600 }
                 ]
             },
             {
-                question: "11. Ce este un Looksmaxxing Streak în viziunea curentă?",
-                options: [
-                    { text: "Să nu ratezi nicio zi de skincare, sală și mewing fără să interacționezi cu NPC-uri.", points: 600 },
-                    { text: "Să te uiți la clipuri cu pisici pe TikTok timp de o săptămână.", points: -700 },
-                    { text: "O serie de filtre pe Instagram.", points: -400 }
+                q: "11. Ce este un Looksmaxxing Streak în viziunea curentă?",
+                opt: [
+                    { t: "Să nu ratezi nicio zi de skincare, sală și mewing fără să interacționezi cu NPC-uri.", p: 600 },
+                    { t: "Să te uiți la clipuri cu pisici pe TikTok timp de o săptămână.", p: -700 },
+                    { t: "O serie de filtre pe Instagram.", p: -400 }
                 ]
             },
             {
-                question: "12. Un TikToker faimos zice pe live că înălțimea nu contează dacă ai frame ideal. Ce crezi?",
-                options: [
-                    { text: "Total cope, un 5ft7 va fi mereu mofat de un 6ft4 indiferent de clavicule.", points: 500 },
-                    { text: "Are dreptate, potențialul meu de Adamlite e salvat!", points: -300 },
-                    { text: "Nu înțeleg termenii, eu doar mă uit la meme-uri cu mașini.", points: -500 }
+                q: "12. Un TikToker faimos zice pe live că înălțimea nu contează dacă ai frame ideal. Ce crezi?",
+                opt: [
+                    { t: "Total cope, un 5ft7 va fi mereu mofat de un 6ft4 indiferent de clavicule.", p: 500 },
+                    { t: "Are dreptate, potențialul meu de Adamlite e salvat!", p: -300 },
+                    { t: "Nu înțeleg termenii, eu doar mă uit la meme-uri cu mașini.", p: -500 }
                 ]
             },
             {
-                question: "13. Care este cel mai rapid mod de a pierde toată Aura agonisită în 2025/2026?",
-                options: [
-                    { text: "Să fii prins că faci frauding cu unghiul camerei ca să pari că ai pomeții falși.", points: 700 },
-                    { text: "Să asculți muzică pop la radio.", points: 0 },
-                    { text: "Să postezi un clip vechi de tipul POV din 2023.", points: 400 }
+                q: "13. Care este cel mai rapid mod de a pierde toată Aura agonisită în 2025/2026?",
+                opt: [
+                    { t: "Să fii prins că faci frauding cu unghiul camerei ca să pari că ai pomeții falși.", p: 700 },
+                    { t: "Să asculți muzică pop la radio.", p: 0 },
+                    { t: "Să postezi un clip vechi de tipul POV din 2023.", p: 400 }
                 ]
             },
             {
-                question: "14. Primești o notificare că ai fost etichetat într-un Aura Check public. Ce speri să scrie?",
-                options: [
-                    { text: "+10,000 Aura - Unbothered, on his own lane.", points: 600 },
-                    { text: "Bro thinks he is the Rizzler.", points: -300 },
-                    { text: "Valid, dar are hairline-ul în retragere.", points: -100 }
+                q: "14. Primești o notificare că ai fost etichetat într-un Aura Check public. Ce speri să scrie?",
+                opt: [
+                    { t: "+10,000 Aura - Unbothered, on his own lane.", p: 600 },
+                    { t: "Bro thinks he is the Rizzler.", p: -300 },
+                    { t: "Valid, dar are hairline-ul în retragere.", p: -100 }
                 ]
             },
             {
-                question: "15. Pe feed-ul tău apare un video cu Brazilian Funk - Slowed + Reverb combinat cu imagini dintr-un anime obscur. Ce faci?",
-                options: [
-                    { text: "Dau Not Interested, e plin internetul de edite de copii de 14 ani.", points: 500 },
-                    { text: "Salvez la favorite și îl pun pe fundal când îmi fac rutina de masaj facial.", points: 300 },
-                    { text: "Mă uit la el de 50 de ori până devin obsedat.", points: -400 }
+                q: "15. Pe feed-ul tău apare un video cu Brazilian Funk - Slowed + Reverb combinat cu imagini dintr-un anime obscur. Ce faci?",
+                opt: [
+                    { t: "Dau Not Interested, e plin internetul de edite de copii de 14 ani.", p: 500 },
+                    { t: "Salvez la favorite și îl pun pe fundal când îmi fac rutina de masaj facial.", p: 300 },
+                    { t: "Mă uit la el de 50 de ori până devin obsedat.", p: -400 }
                 ]
             },
             {
-                question: "16. Ce înseamnă când cineva zice că ai Negative Aura?",
-                options: [
-                    { text: "Că prezența ta scade energia și respectul tuturor celor din cameră.", points: 400 },
-                    { text: "Că ești o persoană foarte misterioasă și cool.", points: -600 },
-                    { text: "Este un termen din fizica cuantică.", points: -500 }
+                q: "16. Ce înseamnă când cineva zice că ai Negative Aura?",
+                opt: [
+                    { t: "Că prezența ta scade energia și respectul tuturor celor din cameră.", p: 400 },
+                    { t: "Că ești o persoană foarte misterioasă și cool.", p: -600 },
+                    { t: "Este un termen din fizica cuantică.", p: -500 }
                 ]
             },
             {
-                question: "17. Prietenul tău îți spune că vrea să înceapă Bone Smashing ca să își mărească pomeții. Ce îi spui?",
-                options: [
-                    { text: "Să se oprească, e periculos și o să își distrugă fața degeaba.", points: 450 },
-                    { text: "Do it bro, no pain no gain, ajungi la PSL 8 direct.", points: -700 },
-                    { text: "Îi dau blocate pe toate rețelele pentru că e prea prăjit.", points: 600 }
+                q: "17. Prietenul tău îți spune că vrea să înceapă Bone Smashing ca să își mărească pomeții. Ce îi spui?",
+                opt: [
+                    { t: "Să se oprească, e periculos și o să își distrugă fața degeaba.", p: 450 },
+                    { t: "Do it bro, no pain no gain, ajungi la PSL 8 direct.", p: -700 },
+                    { t: "Îi dau blocate pe toate rețelele pentru că e prea prăjit.", p: 600 }
                 ]
             },
             {
-                question: "18. Ești într-un apel video și conexiunea cade exact când aveai fața strâmbă. Câtă aură ai pierdut?",
-                options: [
-                    { text: "Cel puțin -800 Aura. Un ecran înghețat pe o față asimetrică e fatal.", points: 400 },
-                    { text: "Nu contează, eram oricum în semi-profil cu iluminare bună.", points: 200 },
-                    { text: "Zero, cui îi pasă?", points: -400 }
+                q: "18. Ești într-un apel video și conexiunea cade exact când aveai fața strâmbă. Câtă aură ai pierdut?",
+                opt: [
+                    { t: "Cel puțin -800 Aura. Un ecran înghețat pe o față asimetrică e fatal.", p: 400 },
+                    { t: "Nu contează, eram oricum în semi-profil cu iluminare bună.", p: 200 },
+                    { t: "Zero, cui îi pasă?", p: -400 }
                 ]
             },
             {
-                question: "19. Ce reprezintă curentul Soft-Maxxing din prezent?",
-                options: [
-                    { text: "Chestii de bază: tunsoare potrivită, igienă, haine curate fără operații sau nebunii.", points: 500 },
-                    { text: "Să dormi pe o pernă foarte moale ca să nu îți strici tenul.", points: -400 },
-                    { text: "Un joc video pe calculator.", points: -500 }
+                q: "19. Ce reprezintă curentul Soft-Maxxing din prezent?",
+                opt: [
+                    { t: "Chestii de bază: tunsoare potrivită, igienă, haine curate fără operații sau nebunii.", p: 500 },
+                    { t: "Să dormi pe o pernă foarte moale ca să nu îți strici tenul.", p: -400 },
+                    { t: "Un joc video pe calculator.", p: -500 }
                 ]
             },
             {
-                question: "20. Final de test: De ce vrei să dai Ascend pe această platformă?",
-                options: [
-                    { text: "Pentru că stadiul meu estetic și mental e peste media de NPC-uri din jur.", points: 1000 },
-                    { text: "Pentru că m-am plictisit și voiam să văd ce scor primesc.", points: 300 },
-                    { text: "Ca să dau share pe TikTok și să flexez cu punctele mele.", points: -200 }
+                q: "20. Final de test: De ce vrei să dai Ascend pe această platformă?",
+                opt: [
+                    { t: "Pentru că stadiul meu estetic și mental e peste media de NPC-uri din jur.", p: 1000 },
+                    { t: "Pentru că m-am plictisit și voiam să văd ce scor primesc.", p: 300 },
+                    { t: "Ca să dau share pe TikTok și să flexez cu punctele mele.", p: -200 }
                 ]
             }
         ];
 
-        let currentQuestionIndex = 0;
-        let totalAura = 0;
+        var indexCurent = 0;
+        var puncteAura = 0;
 
-        document.getElementById('start-button').addEventListener('click', function() {
+        function porneșteTestul() {
             document.getElementById('start-box').style.display = 'none';
             document.getElementById('quiz-box').style.display = 'block';
-            showQuestion();
-        });
+            afișeazăÎntrebarea();
+        }
 
-        function showQuestion() {
-            const currentQuestion = questions[currentQuestionIndex];
-            document.getElementById('progress').innerText = `Întrebarea ${currentQuestionIndex + 1}/${questions.length}`;
-            document.getElementById('question-text').innerText = currentQuestion.question;
+        function afișeazăÎntrebarea() {
+            var data = întrebări[indexCurent];
+            document.getElementById('progress').innerText = 'Întrebarea ' + (indexCurent + 1) + '/' + întrebări.length;
+            document.getElementById('question-text').innerText = data.q;
             
-            const optionsContainer = document.getElementById('options-container');
-            optionsContainer.innerHTML = '';
+            var container = document.getElementById('options-container');
+            container.innerHTML = '';
 
-            currentQuestion.options.forEach(option => {
-                const button = document.createElement('button');
-                button.innerText = option
+            data.opt.forEach(function(o) {
+                var b = document.createElement('button');
+                b.innerText = o.t;
+                b.classList.add('option-btn');
+                b.onclick = function() {
+                    puncteAura += o.p;
+                    indexCurent++;
+                    if (indexCurent < întrebări.length) {
+                        afișeazăÎntrebarea();
+                    } else {
+                        afișeazăRezultatul();
+                    }
+                };
+                container.appendChild(b);
+            });
+        }
+
+        function afișeazăRezultatul() {
+            document.getElementById('quiz-box').style.display = 'none';
+            document.getElementById('result-box').style.display = 'block';
+
+            var txtPuncte = document.getElementById('aura-points');
+            var txtRank = document.getElementById('aura-rank');
+            var txtDesc = document.getElementById('rank-description');
+
+            txtPuncte.innerText = puncteAura >= 0 ? '+' + puncteAura : puncteAura;
+
+            if (puncteAura >= 8000) {
+                txtRank.innerText = "👑 AURA ASCENDED (PSL God Status)";
+                txtDesc.innerText = "Ești direct în vârful piramidei din 2026. Tom Pearl n-are nicio șansă în fața ta, asculți phunk-uri la nivel transcendental, ai frame divin și pomeți care pot tăia sticla. Nivel maxim de respect.";
+            } else if (puncteAura >= 3000 && puncteAura < 8000) {
+                txtRank.innerText = "🤫 ADAMLITE VALID (Mewing Enforcer)";
+                txtDesc.innerText = "Nu e rău deloc. Îți stăpânești instinctele de looksmaxxing, știi când e vorba de cope și nu cazi pradă trendurilor de NPC. Păstrează streak-ul și dai Ascend imediat.";
+            } else if (puncteAura >= -1000 && puncteAura < 3000) {
+                txtRank.innerText = "😐 TIED TO THE MATRIX (Aura neutră)";
+                txtDesc.innerText = "Ești cam la mijloc. Ai momente bune, dar uneori mai pici în capcane vechi sau te panichezi la un live ciudat. Mai lasă telefoanele și ai grijă de estetica ta reală.";
+            } else {
+                txtRank.innerText = "💀 BRAINROT DEFIZICIZAT (-Infinit Aura)";
+                txtDesc.innerText = "Dezastru total în baza de date din 2026. Creierul tău s-a transformat în praf de stickere Son. Ai picat toate testele de dominanță, ești mofat complet de orice Chadlite și ai primit Fanum Tax pe viață. Mergi afară urgent!";
+            }
+        }
+
+        function reporneșteTestul() {
+            indexCurent = 0;
+            puncteAura = 0;
+            document.getElementById('result-box').style.display = 'none';
+            document.getElementById('start-box').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
